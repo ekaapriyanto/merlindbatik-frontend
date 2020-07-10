@@ -1,0 +1,38 @@
+.carousel-item-home-bg {
+    background: rgb(7, 15, 32);
+    background: linear-gradient(
+      90deg,
+      rgba(7, 15, 32, 1) 6%,
+      rgba(60, 100, 177, 1) 69%,
+      rgba(90, 130, 207, 1) 100%
+    );
+  }
+  
+  .carousel-item-home {
+    width: 100vw;
+    height: 600px;
+  }
+  .img-fluid {
+    max-width:100%;
+    height:auto
+   }
+   .img-thumbnail {
+    padding:.25rem;
+    background-color:#fff;
+    border:1px solid #ddd;
+    border-radius:.25rem;
+    transition:all .2s ease-in-out;
+    max-width:100%;
+    height:auto
+   }
+   .figure {
+    display:inline-block
+   }
+   .figure-img {
+    margin-bottom:.5rem;
+    line-height:1
+   }
+   .figure-caption {
+    font-size:90%;
+    color:#868e96
+   }

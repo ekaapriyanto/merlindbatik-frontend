@@ -1,0 +1,24 @@
+{
+    "members" : [
+        {
+            "username": "admin",
+            "password": "admin",
+            "role": "admin",
+            "id": 1
+        },
+        {
+            "username": "eka",
+            "password": "123",
+            "nama": "eka",
+            "emai": "eka@gmail.com",
+            "phone": "087727",
+            "address": "jl.buntu",
+            "distric": "pagedangan",
+            "city": "tangerang",
+            "privince": "banten",
+            "zipCode": "12345",
+            "role": "member",
+            "id": 2
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+.bg-blue{
+    background-color: #071834;
+}
+.spacer {
+    padding: 90px;
+}
+
+.mini-spacer {
+    padding: 40px 0;
+}
+.footer-menu-title {
+    color: #f8f8ff;
+    font-weight: 600;
+    cursor: context-menu;
+}
+.footer-text {
+    color: #cacad3;
+}
+.general-listing {
+    padding: 0px;
+    margin: 0px;
+}
+.two-part{
+    margin: 0px;
+}
