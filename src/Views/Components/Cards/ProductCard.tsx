@@ -3,6 +3,7 @@ import "./ProductCard.css";
 import ButtonUI from "../Buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faStar } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 interface ProductCardData {
   id?: number;
@@ -18,7 +19,7 @@ type ProductCardProps = {
 
 class ProductCard extends React.Component<ProductCardProps> {
   render() {
-    const { productName, price, image } = this.props.data
+    const { id, productName, price, image } = this.props.data
     
     return (
       <div className={`product-card d-inline-block ${this.props.className}`}>
@@ -35,6 +36,7 @@ class ProductCard extends React.Component<ProductCardProps> {
           <p className="small">Yogyakarta</p>
         </div>
         <div className="d-flex flex-row align-items-center justify-content-between mt-2">
+          <Link to={`/products/${id}`}>
           <ButtonUI
             type="outlined"
             style={{ fontSize: "15px", padding: "4px 30px", color: "inhirit" }}
@@ -42,6 +44,7 @@ class ProductCard extends React.Component<ProductCardProps> {
             {" "}
             <FontAwesomeIcon icon={faHeart} /> BUY
           </ButtonUI>
+          </Link>
         </div>
       </div>
     );

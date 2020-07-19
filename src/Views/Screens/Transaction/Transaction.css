@@ -1,0 +1,36 @@
+.bg-transaction {
+    background: rgb(169, 218, 118);
+    font: 400 14px 'Calibri','Arial';
+    padding: 20px;
+}
+.table-transaction {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.thead-trx {
+    height: 60px;
+    background: #FFED86;
+    font-size: 16px;
+}
+.th-trx {
+    text-align: center;
+    padding-left: 8px;
+    height: 30px;
+}
+.woocommerce, .woocommerce-checkout, .order-totals-column {
+    float: right;
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #EEE;
+    padding: 25px 30px;
+    background-color: white;
+}

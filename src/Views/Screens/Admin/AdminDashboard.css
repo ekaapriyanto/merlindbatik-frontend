@@ -1,76 +1,195 @@
 .dashboard {
-    border-left: 1px solid #dbdde0;
-    border-right: 1px solid #dbdde0;
-    border-top: 1px solid #dbdde0;
-  }
-  
-  .dashboard-table {
-    width: 100%;
-  }
-  
-  .dashboard-table th,
-  .dashboard-table tr,
-  .dashboard-table td {
-    border-top: 1px solid #dbdde0;
-    border-bottom: 1px solid #dbdde0;
-    padding: 19px 0px 19px 24px;
-  }
-  
-  .dashboard-table thead tr,
-  .dashboard-table thead th {
-    background-color: #f4f5f4;
-    border-top: 0px !important;
-  }
-  
-  .dashboard-table tr:hover {
-    cursor: pointer;
-    background-color: #f4f5f4;
-  }
-  
-  .collapse-item {
-    padding: 0 !important;
-    height: 0px;
-    opacity: 0;
-    transition: all 150ms ease-in-out;
-    visibility: collapse !important;
-  }
-  
-  .collapse-item:hover {
-    background: white !important;
-    cursor: default !important;
-  }
-  
-  .collapse-item img {
-    height: 160px;
-    object-fit: contain;
-    transition: all 150ms ease-in-out;
-    opacity: 0;
-  }
-  
-  .collapse-item.active img {
-    height: 160px;
-    object-fit: contain;
-    opacity: 1;
-    transition: all 150ms ease-in-out;
-  }
-  
-  .collapse-item.active {
-    height: 160px;
-    opacity: 1;
-    transition: all 150ms ease-in-out;
-    visibility: visible !important;
-  }
-  
-  .dashboard-form-container {
-    border: 1px solid #dbdde0;
-    border-radius: 8px;
-    border-top: 0px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    width: 100%;
-  }
-  
-  .edit-modal img {
-    height: 160px;
-    object-fit: contain;
-  }
+  border-left: 1px solid #DBDDE0;
+  border-right: 1px solid #DBDDE0;
+  border-top: 1px solid #DBDDE0;
+}
+.dashboard-table {
+  width: 100%;
+}
+.dashboard-table th,
+.dashboard-table tr,
+.dashboard-table td {
+  border-top: 1px solid #DBDDE0;
+  border-bottom: 1px solid #DBDDE0;
+  padding: 19px 0px 19px 24px;
+}
+.dashboard-table thead tr,
+.dashboard-table thead th {
+  background-color: #36304a;
+  border-top: 0px !important;
+}
+.dashboard-table tr:hover {
+  background-color: #F4F5F4;
+}
+.collapse-item {
+  overflow: hidden;
+  padding: 0 !important;
+  height: 0px;
+  opacity: 0;
+  transition: all 150ms ease-out;
+  visibility: collapse !important;
+}
+.collapse-item:hover {
+  background: white !important;
+  cursor: default !important;
+}
+.collapse-item img {
+  height: 160px;
+  object-fit: contain;
+  transition: all 150ms ease-out;
+  opacity: 0;
+}
+.collapse-item.active img {
+  height: 160px;
+  object-fit: contain;
+  opacity: 1;
+  transition: all 150ms ease-out;
+}
+.collapse-item.active {
+  height: 160px;
+  opacity: 1;
+  transition: all 150ms ease-out;
+  visibility: visible !important;
+}
+.dashboard-form-container {
+  border: 1px solid #DBDDE0;
+  border-radius: 8px;
+  border-top: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  width: 100%;
+}
+.edit-modal img {
+  height: 160px;
+  object-fit: contain;
+}
+.tabel-product-admin{
+  background-color: rgb(46, 44, 44);
+  color: white;
+}
+.tabel-product-admin:hover{
+  background-color: rgb(221, 205, 205);
+  color: black;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto 100px auto;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  position: relative;
+}
+
+.title-dashboard {
+  color: black;
+  padding: 25px 0 5px 0;
+  height: 45px;
+  font-size: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.row-fadeIn-wrapper {
+  opacity: 0;
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  -webkit-animation: fadeIn 0.4s ease-out 2s 1 alternate;
+  animation: fadeIn 0.4s ease-out 2s 1 alternate;
+      animation-fill-mode: none;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.container-table100 {
+  width: 100%;
+  min-height: 100vh;
+  background: #c850c0;
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 33px 30px;
+}
+
+.table100-head {
+  font-family: OpenSans-Regular;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+.column1 {
+  width: 500px;
+  padding-left: 40px;
+}
+.column2 {
+  width: 120px;
+}
+.column3 {
+  width: 245px;
+}
+
+.table-new {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+.table-data2 {
+  border-collapse: collapse;
+  overflow: visible;
+}
+.tr-shadow {
+    -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+}
+
+.input-group {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+.textHover:hover{
+  cursor: pointer;
+  color: rgb(89, 93, 99);
+}
+.textHover:active{
+  cursor: pointer;
+  color: rgb(70, 139, 243);
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #ddd;
+      border-top-color: rgb(221, 221, 221);
+      border-right-color: rgb(221, 221, 221);
+      border-bottom-color: rgb(221, 221, 221);
+      border-left-color: rgb(221, 221, 221);
+}

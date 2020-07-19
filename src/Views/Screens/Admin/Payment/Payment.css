@@ -1,0 +1,48 @@
+
+.table-transaction {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.thead-trx {
+    height: 60px;
+    background-color: rgb(116, 207, 243);
+    font-size: 16px;
+}
+.thead2-trx {
+    height: 60px;
+    background-color: rgb(109, 248, 190);
+    font-size: 16px;
+}
+.thead3-trx {
+    height: 60px;
+    background-color: rgb(234, 248, 109);
+    font-size: 16px;
+}
+.th-trx {
+    text-align: center;
+    padding-left: 8px;
+    height: 30px;
+}
+.collapse-pay{
+    padding: 0 !important;
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    transition: all 600ms ease-in-out;
+}
+.menu--collapsed {
+    width: 200px;
+    height: 60px;
+  }
+.textHover:hover{
+    cursor: pointer;
+    color: rgb(145, 135, 135);
+}

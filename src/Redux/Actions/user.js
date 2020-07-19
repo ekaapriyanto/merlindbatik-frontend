@@ -59,23 +59,24 @@ export const logoutHandler =()=>{
   }
 }
 
+export const changeProfilUser = (userData) => {
+  return{
+    type: ON_LOGIN_SUCCESS,
+    payload: userData
+  }
+}
 
-
-// export const fillCart = (userId) => {
-//   return (dispatch) => {
-//     Axios.get(`${API_URL}/carts`, {
-//       params: {
-//         userId,
-//       },
-//     })
-//       .then((res) => {
-//         dispatch({
-//           type: "FILL_CART",
-//           payload: res.data.length,
-//         });
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-// };
+export const fillCart = (userId) => {
+  return (dispatch) => {
+    Axios.get(`${API_URL}/carts/fillcart/${userId}`)
+      .then((res) => {
+        dispatch({
+          type: "FILL_CART",
+          payload: res.data.length,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};

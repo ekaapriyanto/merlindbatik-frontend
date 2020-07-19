@@ -32,7 +32,7 @@ export default (state = init_state, action) => {
       return { ...init_state, cookieChecked: true };
     case COOKIE_CHECK:
       return { ...state, cookieChecked: true };
-    case FILL_CART:
+    case "FILL_CART":
       return { ...state, cartItems: action.payload };
     default:
       return { ...state };

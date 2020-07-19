@@ -62,15 +62,11 @@ class Shop extends React.Component {
   renderProducts = () => {
     return this.state.loadProductNew.map((val) => {
         return (
-          <Link style={{textDecoration: "none", color: "inhirit"}}
-            to={`/products/${val.id}`}
-          >
             <ProductCard
               key={val.id}
               data={val}
               className="m-2"
             />
-          </Link>
         )
     })
   }
@@ -118,7 +114,7 @@ class Shop extends React.Component {
                 <hr/>
                 <ul className="list-icons">
                   <li style={{listStyleType: "none"}}>
-                    <Link style={{ color: "inhirit", textDecoration: "none" }} value={this.state.categoryFilter} onClick={(_) => this.ubahKategori("")}>
+                    <Link style={{ color: "inhirit", textDecoration: "none" }} onClick={(_) => this.ubahKategori("")}>
                       <h5>
                         <FontAwesomeIcon icon={faChevronRight} className="mr-2"/>
                         ALL
@@ -126,7 +122,7 @@ class Shop extends React.Component {
                     </Link>
                   </li>
                   <li style={{listStyleType: "none"}}>
-                    <Link style={{ color: "inhirit", textDecoration: "none" }} value={this.state.categoryFilter} onClick={()=>this.ubahKategori("Men")}>
+                    <Link style={{ color: "inhirit", textDecoration: "none" }}  onClick={()=>this.ubahKategori("Men")}>
                       <h5>
                         <FontAwesomeIcon icon={faChevronRight} className="mr-2"/>
                         MEN
@@ -134,7 +130,7 @@ class Shop extends React.Component {
                     </Link>
                   </li >
                   <li style={{listStyleType: "none"}}>
-                    <Link style={{ color: "inhirit", textDecoration: "none" }} value={this.state.categoryFilter} onClick={()=>this.ubahKategori("Woman")}>
+                    <Link style={{ color: "inhirit", textDecoration: "none" }} onClick={()=>this.ubahKategori("Woman")}>
                       <h5>
                         <FontAwesomeIcon icon={faChevronRight} className="mr-2"/>
                         WOMAN
@@ -142,7 +138,7 @@ class Shop extends React.Component {
                     </Link>
                   </li>
                   <li style={{listStyleType: "none"}}>
-                    <Link style={{ color: "inhirit", textDecoration: "none" }} value={this.state.categoryFilter} onClick={()=>this.ubahKategori("Couple")}>
+                    <Link style={{ color: "inhirit", textDecoration: "none" }} onClick={()=>this.ubahKategori("Couple")}>
                       <h5>
                         <FontAwesomeIcon icon={faChevronRight} className="mr-2"/>
                         COUPLE
@@ -150,7 +146,7 @@ class Shop extends React.Component {
                     </Link>
                   </li>
                   <li style={{listStyleType: "none"}}>
-                    <Link style={{ color: "inhirit", textDecoration: "none" }} value={this.state.categoryFilter} onClick={()=>this.ubahKategori("Kids")}>
+                    <Link style={{ color: "inhirit", textDecoration: "none" }} onClick={()=>this.ubahKategori("Kids")}>
                       <h5>
                         <FontAwesomeIcon icon={faChevronRight} className="mr-2"/>
                         KIDS
@@ -176,7 +172,7 @@ class Shop extends React.Component {
                     <input className="form-control text-left" type="text" placeholder="Harga Max" onChange={(e) => this.setState({maxPrice: 1*e.target.value})}/>
                   </div>
                 <div className="form-group mt-2 text-center">
-                  <buuton className="btn btn-primary" onClick={this.getProductsFiltering}>Process</buuton>
+                  <button className="btn btn-primary" onClick={this.getProductsFiltering}>Process</button>
                 </div>
               </div>
               <div className="sf-box mt-3">
@@ -187,6 +183,7 @@ class Shop extends React.Component {
                     <select className="form-control custom-select" onClick={() => this.getProductsFiltering(this.valueCategory)} onChange={(e) => this.setState({ orderBy: e.target.value })}>
                       <option value="productName">Sort By Name</option>
                       <option value="price">Sort By Price</option>
+                      {this.props.user.role === "admin" ? <option value="sold">Sold</option> : null }
                     </select>
                   </div>
                   <div className="select-box">
@@ -200,7 +197,22 @@ class Shop extends React.Component {
             </div>
             <div className="col-lg-9 col-md-8">
               <div className="title text-center">
-                <h2 className="title-menu font-weight-bolder">Mertlind batik Collections</h2>
+                <div className="row title-menu2">
+                  <div className="col-6">
+                    <h4 className="title-menu font-weight-bolder">Mertlind batik Collections</h4>
+                  </div>
+                  <div className="col-6 mt-3">
+                    <input
+                      onKeyUp={() => this.getProductsFiltering()}
+                      onChange={(e) => this.setState({ searchProduct: e.target.value })}
+                      onFocus={this.onFocus}
+                      onBlur={this.onBlur}
+                      className={`search-bar ${this.state.searchBarIsFocused ? "active" : null}`}
+                      type="text"
+                      placeholder="Cari produk impianmu disini"
+                    />
+                  </div>
+                </div>
               </div>
               <div className="row shop-listing d-flex flex-wrap justify-content-center">
                 {this.renderProducts()}
@@ -230,6 +242,7 @@ class Shop extends React.Component {
 const mapStateToProps = (state) => {
   return {
     search: state.search,
+    user: state.user
   }
 }
 

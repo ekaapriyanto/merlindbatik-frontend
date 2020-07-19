@@ -20,6 +20,13 @@
     font-weight: 600;
     margin: 20px 0 15px;
 }
+.title-menu2 {
+  background-color: #fff;
+  padding: 0px 0px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin: 20px 0 15px;
+}
 
 .sf-box {
     background-color: rgb(255, 255, 255);
@@ -413,4 +420,20 @@ a.bg-dark:hover {
   top: 0;
   padding: 5px 15px;
   border-left: 5px solid #fff;
+}
+
+.search-bar {
+  background-color: var(--gray-lightest);
+  padding: 11px 16px;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  border-bottom: 1px solid white;
+  transition: all ease 150ms;
+  border-radius: 35px;
+}
+
+.search-bar.active {
+  border-bottom: 1px solid var(--accent-default);
 }

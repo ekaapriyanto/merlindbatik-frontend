@@ -3,11 +3,10 @@ import Brand from "../../../Assets/images/brand.png"
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons/";
+import { faShoppingCart, faUserAlt} from "@fortawesome/free-solid-svg-icons/";
 import { Dropdown, DropdownItem, DropdownToggle,DropdownMenu} from "reactstrap";
-import { logoutHandler } from "../../../Redux/Actions/user"
+import { logoutHandler, fillCart } from "../../../Redux/Actions/user"
 import ButtonUI from "../Buttons/Button";
 import logout from "../../../Assets/icons/logout.png"
 import profil from "../../../Assets/icons/user.png"
@@ -55,18 +54,50 @@ class Navbar extends React.Component {
           <Link className="ml-4" style={{ textDecoration: "none", color: "blue" }}>Story</Link>
           <Link className="ml-4" style={{ textDecoration: "none", color: "blue" }}>News</Link>
           <div style={{ flex: 1 }} className="px-5 d-flex flex-row justify-content-start">
-            <input
-              onChange={this.props.onChangeSearch}
-              onFocus={this.onFocus}
-              onBlur={this.onBlur}
-              className={`search-bar ${this.state.searchBarIsFocused ? "active" : null}`}
-              type="text"
-              placeholder="Cari produk impianmu disini"
-            />
+            
           </div>
           <div className="d-flex flex-row align-items-center">
-            {this.props.user.username ? (
+            {this.props.user.id ? (
               <>
+              {this.props.user.role === "admin" ? (
+                <>
+                <Dropdown toggle={this.toggleDropdown} isOpen={this.state.dropdownOpen}>
+                  <DropdownToggle tag="div" className="d-flex">
+                    <FontAwesomeIcon icon={faUserAlt} style={{ fontSize: 24 }} />
+                    <p className="small ml-3 mr-4">{this.props.user.username}</p>
+                  </DropdownToggle>
+                  <DropdownMenu className="mt-2">
+                    <DropdownItem>
+                      <Link style={{ color: "inherit", textDecoration: "none" }} to="/admin/dashboard">
+                        Dashboard
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/admin/dataMember" style={{color: "inherit", textDecoration: "none"}}>
+                        Member
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/admin/payment" style={{ color: "inherit", textDecoration: "none" }}>
+                        Payments
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/admin/report" style={{ color: "inherit", textDecoration: "none" }}>
+                        Report product
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/" onClick={this.logoutBtnHandler} style={{textDecoration:"none"}}>
+                        Logout
+                        <img src={logout} width="20px" className="ml-2"/>
+                      </Link>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+                </>
+              ) : (
+                <>
                 <Link
                   className="d-flex flex-row"
                   to="/cart"
@@ -82,60 +113,31 @@ class Navbar extends React.Component {
                       {this.props.user.cartItems}
                     </small>
                   </CircleBg>
-                </Link>
-                <Dropdown toggle={this.toggleDropdown} isOpen={this.state.dropdownOpen}>
+                  </Link>
+                  <Dropdown toggle={this.toggleDropdown} isOpen={this.state.dropdownOpen} className="ml-5">
                   <DropdownToggle tag="div" className="d-flex">
-                    <FontAwesomeIcon className="ml-5" icon={faUser} style={{ fontSize: 24 }} />
-                    <p className="small ml-3">{this.props.user.username}</p>
+                    <FontAwesomeIcon icon={faUserAlt} style={{ fontSize: 24 }} />
+                    <p className="small ml-3 mr-4">{this.props.user.username}</p>
                   </DropdownToggle>
-                  <DropdownMenu className="mt-2">
-                    {this.props.user.role == "admin" ? (
-                      <>
-                        <DropdownItem>
-                          <Link
-                            style={{ color: "inherit", textDecoration: "none" }}
-                            to="/admin/dashboard"
-                          >
-                            Dashboard
-                          </Link>
-                        </DropdownItem>
-                        <DropdownItem>Members</DropdownItem>
-                        <DropdownItem>
-                          <Link
-                            style={{ color: "inherit", textDecoration: "none" }}
-                            to="/admin/payments"
-                          >
-                            Payments
-                          </Link>
-                        </DropdownItem>
-                        <DropdownItem>
-                          <Link to="/" onClick={this.logoutBtnHandler} style={{textDecoration:"none"}}>
-                            Logout
-                            <img src={logout} width="20px" className="ml-2"/>
-                          </Link>
-                        </DropdownItem>
-                      </>
-                    ) : (
-                      <>
-                        <DropdownItem>
-                          <Link to="/userprofil">
-                            <img src={profil} width="20px" className="mr-2"/>Profil
-                          </Link>
-                        </DropdownItem>
-                        <DropdownItem>Wishlist</DropdownItem>
-                        <DropdownItem>
-                          <Link to="/history">History</Link>
-                        </DropdownItem>
-                        <DropdownItem>
-                          <Link to="/" onClick={this.logoutBtnHandler} style={{textDecoration:"none"}}>
-                            Logout
-                            <img src={logout} width="20px" className="ml-2"/>
-                          </Link>
-                        </DropdownItem>
-                      </>
-                    )}
+                  <DropdownMenu className="mt-3">
+                    <DropdownItem>
+                      <Link to="/userprofil">
+                        <img src={profil} width="20px" className="mr-2"/>Profil
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/history">History</Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link to="/" onClick={this.logoutBtnHandler} style={{textDecoration:"none"}}>
+                        Logout
+                        <img src={logout} width="20px" className="ml-2"/>
+                      </Link>
+                    </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
+                </>
+              )}
               </>
             ) : (
               <>
@@ -161,6 +163,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   logoutHandler,
   onChangeSearch: navbarInputHandler,
+  fillCart,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

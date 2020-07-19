@@ -17,6 +17,12 @@ import ProfilUser from './Views/Screens/User/Profil/ProfilUser';
 import PageNotFound from './Views/Screens/PageNotFound';
 import Shop from './Views/Screens/Shop/Shop';
 import ProductDetails from './Views/Screens/ProductDetails/ProductDetails';
+import DataMember from './Views/Screens/Admin/Members/Member';
+import Cart from './Views/Screens/Cart/Cart';
+import Transaction from './Views/Screens/Transaction/Transaction';
+import PaymentAdmin from './Views/Screens/Admin/Payment/Payment';
+import HistoryUser from './Views/Screens/User/History/History';
+import ReportProduct from './Views/Screens/Admin/Report/Report';
 
 const cookieObj = new Cookies();
 
@@ -35,6 +41,9 @@ class App extends React.Component {
       return (
         <>
         <Route exact path="/admin/dashboard" component={AdminDashboard}/>
+        <Route exact path="/admin/datamember" component={DataMember}/>
+        <Route exact path="/admin/payment" component={PaymentAdmin} />
+        <Route exact path="/admin/report" component={ReportProduct} />
         </>
       )
     }
@@ -45,7 +54,9 @@ class App extends React.Component {
       return(
         <>
         <Route exact path="/userprofil" component={ProfilUser} />
-        <Route/>
+        <Route exact path="/cart" component={Cart}/>
+        <Route exact path="/transaction/:id" component={Transaction} />
+        <Route exact path="/history" component={HistoryUser}/>
         </>
       )
     }

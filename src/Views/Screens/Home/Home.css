@@ -35,4 +35,8 @@
    .figure-caption {
     font-size:90%;
     color:#868e96
-   }
+}
+.heading-title {
+  font-family: "AvantGarde Bk BT";
+  letter-spacing: 10px;
+}

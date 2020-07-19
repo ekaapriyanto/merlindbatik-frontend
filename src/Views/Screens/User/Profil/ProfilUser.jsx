@@ -10,6 +10,7 @@ import Axios from "axios";
 import { API_URL } from "../../../../Constants/API";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import { changeProfilUser } from "../../../../Redux/Actions/user"
 
 const styles = {
   bgContainer: {
@@ -78,6 +79,7 @@ class ProfilUser extends React.Component{
             console.log(res.data)
             swal("Success", "Your Data Has Been Changed", "success")
             this.setState({ modalOpenProfil: false })
+            this.props.changeProfilUser(res.data)
         })
         .catch((err) => {
             console.log(err)
@@ -143,7 +145,7 @@ class ProfilUser extends React.Component{
                             Edit Nama
                             <TextField value={this.state.editProfileForm.name} onChange={(e) => this.inputHandler(e, "name", "editProfileForm")} placeholder="Edit Name"/>
                             Edit Username
-                            <TextField value={this.state.editProfileForm.username} onChange={(e) => this.inputHandler(e, "userame", "editProfileForm")} placeholder="Edit Username"/>
+                            <TextField value={this.state.editProfileForm.username} onChange={(e) => this.inputHandler(e, "username", "editProfileForm")} placeholder="Edit Username"/>
                             Edit Email
                             <TextField value={this.state.editProfileForm.email} onChange={(e) => this.inputHandler(e, "email", "editProfileForm")} placeholder="Edit Email"/>
                             Edit Phone
@@ -184,11 +186,11 @@ class ProfilUser extends React.Component{
                         </ModalHeader>
                         <ModalBody>
                             Old Password
-                            <TextField onChange={(e) => this.inputHandler(e, "password", "editPasswordForm")} placeholder="Edit Name"/>
+                            <TextField onChange={(e) => this.inputHandler(e, "password", "editPasswordForm")} placeholder="Old Password"/>
                             New Password
-                            <TextField onChange={(e) => this.inputHandler(e, "newPassword", "editPasswordForm")} placeholder="Edit Username"/>
+                            <TextField onChange={(e) => this.inputHandler(e, "newPassword", "editPasswordForm")} placeholder="New PasswordEdit"/>
                             Confirm New Password
-                            <TextField onChange={(e) => this.inputHandler(e, "confirmPassword", "editPasswordForm")} placeholder="Edit Username"/>
+                            <TextField onChange={(e) => this.inputHandler(e, "confirmPassword", "editPasswordForm")} placeholder="Confirm Password"/>
                             <Link to="/forgotpassword">Lupa Password</Link>
                             <div className="d-flex mt-3">
                                 <ButtonUI className="mr-2" onClick={this.toggleModalPassword} type="outlined">Cancel</ButtonUI>
@@ -206,4 +208,7 @@ const mapStateToProps = (state) => {
       user: state.user,
     };
 };
-export default connect(mapStateToProps) (ProfilUser);
+const mapDispatchToProps = {
+    changeProfilUser,
+}
+export default connect(mapStateToProps, mapDispatchToProps) (ProfilUser);
