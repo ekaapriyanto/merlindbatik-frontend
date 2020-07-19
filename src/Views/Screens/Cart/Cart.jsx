@@ -8,6 +8,7 @@ import { Table } from "reactstrap";
 import { priceFormatter } from "../../../supports/helpers/formatter";
 import { Redirect, Link } from "react-router-dom";
 import { fillCart } from "../../../Redux/Actions";
+import "./Cart.css"
 
 class Cart extends React.Component {
     state = {
@@ -214,11 +215,11 @@ class Cart extends React.Component {
                                             </strong>
                                         </div>
                                         <div className="d-flex justify-content-between my-2">
-                                            <div>Shipping</div>
+                                            <div>Biaya Pengiriman</div>
                                             <strong>{this.renderShippingPrice()}</strong>
                                         </div>
                                         <div className="d-flex justify-content-between my-2 align-items-center">
-                                            <label>Shippig Method</label>
+                                            <label>Expedisi</label>
                                             <select onChange={(e) => this.setState({ jasaPengiriman: e.target.value })} className="form-control w-50">
                                                 <option value="JNT">J&T</option>
                                                 <option value="JNE">JNE</option>

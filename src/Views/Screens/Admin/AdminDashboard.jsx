@@ -139,14 +139,16 @@ class AdminDashboard extends React.Component {
   }
 
   createProductHandler = () => {
+    // console.log(this.state.createForm)
     Axios.post(`${API_URL}/products/addproducts`, this.state.createForm)
     .then((res) => {
       swal("Success!","Your item has been added to the list","success")
       this.setState({ ...this.state.createForm})
-      this.getProductList()
+      this.getProductsFiltering()
     })
     .catch((err) => {
-      swal("Error!","Ypur item could not be added to the list","error")
+      swal("Error!","Your item could not be added to the list","error")
+      console.log(err)
     })
   }
 
@@ -165,7 +167,7 @@ class AdminDashboard extends React.Component {
         console.log(res.data)
         swal("Success!", "Your item has been edited", "success");
         this.setState({ modalOpen: false });
-        this.getProductList();
+        this.getProductsFiltering()
       })
       .catch((err) => {
         swal("Error!", "Your item could not be edited", "error");
@@ -178,7 +180,7 @@ class AdminDashboard extends React.Component {
       .then((res) => {
         console.log(res.data)
         swal("Success!", "Your item has been delete", "success");
-        this.getProductList();
+        this.getProductsFiltering()
       })
       .catch((err) => {
         console.log(err)
@@ -439,10 +441,7 @@ class AdminDashboard extends React.Component {
   }
 
   componentDidMount() {
-    //this.getProductList();
-    //this.ubahKategori(this.valueCategory)
     this.getProductsFiltering()
-    this.countPage()
   }
 
   render(){

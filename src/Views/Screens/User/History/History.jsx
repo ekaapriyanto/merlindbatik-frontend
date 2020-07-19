@@ -43,7 +43,7 @@ class HistoryUser extends React.Component{
                 <div className="col-his col-his2">
                   <Link to={`/transaction/${val.id}`}>
                     <button className={!val.buktiTransfer ? (`btn btn-warning`) : (`btn btn-info`)}>{!(val.buktiTransfer) ? (
-                      <p>Konfirmasi ulang</p>
+                      <p>Confirm</p>
                     ) : (
                       <p>Transaction Details</p>
                     )}

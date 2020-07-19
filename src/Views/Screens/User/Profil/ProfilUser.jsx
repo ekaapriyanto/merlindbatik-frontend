@@ -97,7 +97,7 @@ class ProfilUser extends React.Component{
             })
             .catch((err) => {
                 console.log(err);
-                swal("Failed","Your paassword not Match", "error");
+                swal("Failed", err.response.data.message , "error");
             })
         }else {
             swal("Confimasi password salah")
