@@ -104,6 +104,16 @@ class ProfilUser extends React.Component{
         }
     }
 
+    verifyEmail = () => {
+        Axios.get(`${API_URL}/members/email/verify/${this.props.user.email}`)
+        .then((res) => {
+            swal("Succes", res.data, "success")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     render(){
         return(
             <body>
@@ -125,6 +135,9 @@ class ProfilUser extends React.Component{
                                     <div className="mt-5 mb-5 row">
                                         <button className="btn-edit" onClick={(_) => this.editProfilBtnHandler()}>Edit Profil</button>
                                         <button className="btn-edit" onClick={(_) => this.editPasswordBtnhandler()}>Edit Password</button>
+                                        {!this.props.user.isVerified ? (
+                                            <button className="btn-edit" onClick={() => this.verifyEmail()}>Verifay Email</button>
+                                        ) : null}
                                     </div>
                                 </div>
                             </div>
